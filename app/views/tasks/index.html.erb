@@ -1,0 +1,12 @@
+<div class = "container">
+    <h1> My Tasks </h1>
+    <% @tasks.each do |task|%>
+        <div class = "d-flex">
+            <input type="checkbox" id="task" name="task1" value="task1" <%= task.completed ? 'checked' : ''%>>
+            <label for="task" class = "ml-1"> <%= link_to task.title, task_path(task)%></label>
+            <%= link_to "Delete", task_path(task), method: :delete, data: {confirm: "Estas seguro?"}, class:"ml-3" %>
+        </div>     
+    <%end%>           
+    <hr>
+    <%= link_to 'Add a new task', new_task_path %>
+</div>
